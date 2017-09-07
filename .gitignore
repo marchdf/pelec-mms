@@ -3,3 +3,5 @@ PeleC3d.gnu.MPI.ex
 mms.o*[0-9]
 plt*/
 chk*/
+*.png
+*.pdf

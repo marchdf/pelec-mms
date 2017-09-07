@@ -39,7 +39,7 @@ markertype = ['s', 'd', 'o', 'p', 'h']
 def get_ic(fdir):
     """Get some normalizing quantities."""
 
-    fname = glob.glob(os.path.join(fdir, 'mms.o*'))
+    fname = glob.glob(os.path.join(fdir, 'mms.o'))
 
     with open(fname[0]) as f:
 

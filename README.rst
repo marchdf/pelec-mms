@@ -66,21 +66,21 @@ are imposed everywhere.
 
 - Density :math:`L_2` error norm:
 
-.. image:: ./hydro/rho_error.png
+.. image:: ./euler/rho_error.png
    :width: 300pt
 
 - Velocity (u, v, w) :math:`L_2` error norm:
 
-.. image:: ./hydro/u_error.png
+.. image:: ./euler/u_error.png
    :width: 300pt
-.. image:: ./hydro/v_error.png
+.. image:: ./euler/v_error.png
    :width: 300pt
-.. image:: ./hydro/w_error.png
+.. image:: ./euler/w_error.png
    :width: 300pt
 
 - Pressure :math:`L_2` error norm:
 
-.. image:: ./hydro/p_error.png
+.. image:: ./euler/p_error.png
    :width: 300pt
 
 

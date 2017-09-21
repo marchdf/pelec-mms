@@ -4,3 +4,4 @@ mms.o*[0-9]
 plt*/
 chk*/
 *.pdf
+__pycache__

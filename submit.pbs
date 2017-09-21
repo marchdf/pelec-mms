@@ -20,32 +20,33 @@ cd $PBS_O_WORKDIR
     module load python/2.7.8
 } &> /dev/null
 
-# Run the simulations
-cd 8;
+#================================================================================
+# CNS without AMR
+WORKDIR=`pwd`/cns_noamr
+
+cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
 mpirun -n 4 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
-cd $PBS_O_WORKDIR;
 
-cd 16;
+cd ${WORKDIR}/16;
 rm -rf chk* plt* datlog mmslog;
 mpirun -n 4 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
-cd $PBS_O_WORKDIR;
 
-cd 32;
+cd ${WORKDIR}/32;
 rm -rf chk* plt* datlog mmslog;
 mpirun -n 24 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
-cd $PBS_O_WORKDIR;
 
-cd 64;
+cd ${WORKDIR}/64;
 rm -rf chk* plt* datlog mmslog;
 mpirun -n 48 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
-cd $PBS_O_WORKDIR;
 
-# Post-process the simulations
+#================================================================================
+# Run the test suite
+cd $PBS_O_WORKDIR
+
 module unload python
 export CONDA_PATH=${HOME}/miniconda3/bin
 source ${CONDA_PATH}/activate main
 export PATH=${HOME}/spack/opt/spack/linux-centos6-x86_64/gcc-5.2.0/texlive-live-exuxrkjvoc2k5ov6zupdxw6q5k5c7pdp/bin/x86_64-linux:${PATH}
 
-./plot.py
-./plot_mmslog.py
+nosetests ;

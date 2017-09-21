@@ -3,7 +3,7 @@
 #PBS -l walltime=08:00:00  # WALLTIME limit
 #PBS -q batch-h  # queue
 #PBS -l nodes=2:ppn=24  # Number of nodes, put x processes on each
-#PBS -N mms  # Name of job
+#PBS -N pelec-mms  # Name of job
 #PBS -A ExaCT  # Project handle
 #PBS -m ae  # Email at start/end of job
 #PBS -j oe  # Combine output and error file

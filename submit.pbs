@@ -21,24 +21,28 @@ cd $PBS_O_WORKDIR
 } &> /dev/null
 
 #================================================================================
+# Pele binary
+PELECBIN=`pwd`/PeleC3d.gnu.MPI.ex
+
+#================================================================================
 # CNS without AMR
 WORKDIR=`pwd`/cns_noamr
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 4 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
+mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/16;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 4 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
+mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/32;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 24 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
+mpirun -n 24 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/64;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 48 ../PeleC3d.gnu.MPI.ex inputs_3d > mms.o 2>&1 ;
+mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
 # Run the test suite

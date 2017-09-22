@@ -29,21 +29,22 @@ be.
 
 MetaPhysicl
 ^^^^^^^^^^^
-1. Get [Metaphysicl](https://github.com/roystgnr/MetaPhysicL)
-2. `./bootstrap` (on Peregrine, do  `spack load autoconf` first)
-3. `./configure --prefix=${HOME}/combustion/install/MetaPhysicL`
-4. `make`
-5. `make install`
+
+#. Get `Metaphysicl <https://github.com/roystgnr/MetaPhysicL>`_
+#. :code:`./bootstrap` (on Peregrine, do  :code:`spack load autoconf` first)
+#. :code:`./configure --prefix=${HOME}/combustion/install/MetaPhysicL`
+#. :code:`make`
+#. :code:`make install`
 
 MASA
 ^^^^
 
-1. Get [MASA](https://github.com/manufactured-solutions/MASA)
-2. `./boostrap` (on Peregrine, do  `spack load autoconf` first`)
-3. `./configure --enable-fortran-interfaces METAPHYSICL_DIR=${HOME}/combustion/install/MetaPhysicL --prefix=${HOME}/combustion/install/MASA --enable-python-interfaces`
-4. `make`
-5. `make check`
-6. `make install`
+#. Get `MASA <https://github.com/manufactured-solutions/MASA>`_
+#. :code:`./boostrap` (on Peregrine, do  :code:`spack load autoconf` first`)
+#. :code:`./configure --enable-fortran-interfaces METAPHYSICL_DIR=${HOME}/combustion/install/MetaPhysicL --prefix=${HOME}/combustion/install/MASA --enable-python-interfaces`
+#. :code:`make`
+#. :code:`make check`
+#. :code:`make install`
 
 Using
 ~~~~~

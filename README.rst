@@ -2,8 +2,8 @@ Verification of PeleC
 =====================
 
 Verification of PeleC uses `MASA
-<https://github.com/manufactured-solutions/MASA>`_ and
-auto-differentiation tools to implement the Method of Manufactured
+<https://github.com/manufactured-solutions/MASA>`_, an
+auto-differentiation MMS tool, to implement the Method of Manufactured
 Solutions into PeleC.
 
 There :math:`L_2` error norm for a quantity :math:`s` is defined as

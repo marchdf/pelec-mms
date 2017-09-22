@@ -310,6 +310,21 @@ class OOATestCase(unittest.TestCase):
         npt.assert_allclose(
             np.array(ooa.iloc[-1]), self.theory_order, rtol=1e-2)
 
+    def test_cns_amr(self):
+        """Is the CNS with AMR PeleC second order accurate?"""
+
+        # Load the data
+        fdir = os.path.abspath(os.path.join(self.parent_dir, 'cns_amr'))
+        edf = load_pelec_error(fdir, self.theory_order)
+        ooa = calculate_ooa(edf)
+
+        # Plot the errors
+        plot_errors(fdir, edf)
+
+        # Test against theoretical OOA
+        npt.assert_allclose(
+            np.array(ooa.iloc[-1]), self.theory_order, rtol=1e-2)
+
 
 # ========================================================================
 #

@@ -20,13 +20,18 @@ cd $PBS_O_WORKDIR
     module load python/2.7.8
 } &> /dev/null
 
+
+#================================================================================
+# Setup
+CWDIR=`pwd`
+
 #================================================================================
 # Pele binary
-PELECBIN=`pwd`/PeleC3d.gnu.MPI.ex
+PELECBIN=${CWDIR}/PeleC3d.gnu.MPI.ex
 
 #================================================================================
 # CNS without AMR
-WORKDIR=`pwd`/cns_noamr
+WORKDIR=${CWDIR}/cns_noamr
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
@@ -45,8 +50,28 @@ rm -rf chk* plt* datlog mmslog;
 mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
+# CNS with AMR
+WORKDIR=${CWDIR}/cns_amr
+
+cd ${WORKDIR}/8;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/16;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 24 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/32;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/64;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+
+#================================================================================
 # Run the test suite
-cd $PBS_O_WORKDIR
+cd ${CWDIR}
 
 module unload python
 export CONDA_PATH=${HOME}/miniconda3/bin

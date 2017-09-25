@@ -124,9 +124,23 @@ preserve the second order accuracy of the code.
 .. image:: ./cns_amr/umag.png
    :width: 200pt
 
-- Velocity :math:`L_2` error norm:
+- Density :math:`L_2` error norm:
+
+.. image:: ./cns_amr/rho_error.png
+   :width: 300pt
+
+- Velocity (u, v, w) :math:`L_2` error norm:
 
 .. image:: ./cns_amr/u_error.png
+   :width: 300pt
+.. image:: ./cns_amr/v_error.png
+   :width: 300pt
+.. image:: ./cns_amr/w_error.png
+   :width: 300pt
+
+- Pressure :math:`L_2` error norm:
+
+.. image:: ./cns_amr/p_error.png
    :width: 300pt
 
 

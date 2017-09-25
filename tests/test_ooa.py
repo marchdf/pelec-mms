@@ -139,6 +139,7 @@ def calculate_ooa(edf):
 def plot_errors(fdir, edf):
     """Plot the error dataframe."""
 
+    plt.close('all')
     plt.figure(0)
     p = plt.loglog(edf['resolution'],
                    edf['rho_mms_err'],

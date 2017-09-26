@@ -2,7 +2,7 @@
 
 #PBS -l walltime=24:00:00  # WALLTIME limit
 #PBS -q batch-h  # queue
-#PBS -l nodes=2:ppn=24  # Number of nodes, put x processes on each
+#PBS -l nodes=4:ppn=24  # Number of nodes, put x processes on each
 #PBS -N pelec-mms  # Name of job
 #PBS -A ExaCT  # Project handle
 #PBS -m ae  # Email at start/end of job
@@ -67,7 +67,7 @@ mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/64;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 96 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
 # Run the test suite

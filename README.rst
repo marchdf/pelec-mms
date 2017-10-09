@@ -142,33 +142,3 @@ preserve the second order accuracy of the code.
 
 .. image:: ./cns_amr/p_error.png
    :width: 300pt
-
-
-Testing the Euler equations
----------------------------
-
-We can turn off diffusion in Pele and set the coefficients for those
-terms to zero in MASA to test the hydrodynamic update. A convergence
-study shows second order for Pele's treatment of the hydrodynamic
-source. The initial solution was initialized to the exact solution and
-100 pseudo-time steps were taken (fixed to :math:`10^{-8}`). Periodic boundaries
-are imposed everywhere.
-
-- Density :math:`L_2` error norm:
-
-.. image:: ./euler/rho_error.png
-   :width: 300pt
-
-- Velocity (u, v, w) :math:`L_2` error norm:
-
-.. image:: ./euler/u_error.png
-   :width: 300pt
-.. image:: ./euler/v_error.png
-   :width: 300pt
-.. image:: ./euler/w_error.png
-   :width: 300pt
-
-- Pressure :math:`L_2` error norm:
-
-.. image:: ./euler/p_error.png
-   :width: 300pt

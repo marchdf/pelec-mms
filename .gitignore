@@ -1,5 +1,7 @@
 .DS_Store
 PeleC3d.gnu.MPI.ex
+PeleC2d.gnu.MPI.ex
+PeleC1d.gnu.MPI.ex
 pelec-mms.o*[0-9]
 plt*/
 chk*/

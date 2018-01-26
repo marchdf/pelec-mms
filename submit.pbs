@@ -27,7 +27,17 @@ CWDIR=`pwd`
 
 #================================================================================
 # Pele binary
-PELECBIN=${CWDIR}/PeleC3d.gnu.MPI.ex
+PELEC3D=${CWDIR}/PeleC3d.gnu.MPI.ex
+PELEC2D=${CWDIR}/PeleC2d.gnu.MPI.ex
+PELEC1D=${CWDIR}/PeleC1d.gnu.MPI.ex
+
+#================================================================================
+# Symmetry
+WORKDIR=${CWDIR}/cns_noamr
+
+cd ${WORKDIR};
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
 # CNS without AMR
@@ -35,19 +45,63 @@ WORKDIR=${CWDIR}/cns_noamr
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 4 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/16;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 4 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/32;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 24 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 24 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/64;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 48 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
+
+#================================================================================
+# CNS without AMR (2D)
+WORKDIR=${CWDIR}/cns_noamr_2d
+
+cd ${WORKDIR}/8;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELEC2D} inputs_2d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/16;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELEC2D} inputs_2d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/32;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 8 ${PELEC2D} inputs_2d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/64;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELEC2D} inputs_2d > mms.o 2>&1 ;
+
+#================================================================================
+# CNS without AMR (1D)
+WORKDIR=${CWDIR}/cns_noamr_1d
+
+cd ${WORKDIR}/8;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 1 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/16;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 1 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/32;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 1 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/64;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 2 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
+
+cd ${WORKDIR}/128;
+rm -rf chk* plt* datlog mmslog;
+mpirun -n 4 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
 
 #================================================================================
 # CNS with AMR
@@ -55,19 +109,19 @@ WORKDIR=${CWDIR}/cns_amr
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 4 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 4 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/16;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 24 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 24 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/32;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 48 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 48 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 cd ${WORKDIR}/64;
 rm -rf chk* plt* datlog mmslog;
-mpirun -n 96 ${PELECBIN} inputs_3d > mms.o 2>&1 ;
+mpirun -n 96 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
 # Run the test suite

@@ -107,6 +107,8 @@ state solver would fail to test the temporal discretization scheme.
 .. image:: ./cns_noamr/p_error.png
    :width: 300pt
 
+- Results for `1D <./cns_noamr_1d/README.rst>`_ and `2D <./cns_noamr_2d/README.rst>`_
+
 Testing the adaptive mesh refinement algorithm
 ----------------------------------------------
 

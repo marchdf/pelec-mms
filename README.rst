@@ -90,21 +90,21 @@ state solver would fail to test the temporal discretization scheme.
 
 - Density :math:`L_2` error norm:
 
-.. image:: ./cns_noamr/rho_error.png
+.. image:: ./cns_noamr_3d/rho_error.png
    :width: 300pt
 
 - Velocity (u, v, w) :math:`L_2` error norm:
 
-.. image:: ./cns_noamr/u_error.png
+.. image:: ./cns_noamr_3d/u_error.png
    :width: 300pt
-.. image:: ./cns_noamr/v_error.png
+.. image:: ./cns_noamr_3d/v_error.png
    :width: 300pt
-.. image:: ./cns_noamr/w_error.png
+.. image:: ./cns_noamr_3d/w_error.png
    :width: 300pt
 
 - Pressure :math:`L_2` error norm:
 
-.. image:: ./cns_noamr/p_error.png
+.. image:: ./cns_noamr_3d/p_error.png
    :width: 300pt
 
 - Results for `1D <./cns_noamr_1d/README.rst>`_ and `2D <./cns_noamr_2d/README.rst>`_
@@ -123,24 +123,24 @@ preserve the second order accuracy of the code.
 
 - Magnitude of velocity and mesh:
 
-.. image:: ./cns_amr/umag.png
+.. image:: ./cns_amr_3d/umag.png
    :width: 200pt
 
 - Density :math:`L_2` error norm:
 
-.. image:: ./cns_amr/rho_error.png
+.. image:: ./cns_amr_3d/rho_error.png
    :width: 300pt
 
 - Velocity (u, v, w) :math:`L_2` error norm:
 
-.. image:: ./cns_amr/u_error.png
+.. image:: ./cns_amr_3d/u_error.png
    :width: 300pt
-.. image:: ./cns_amr/v_error.png
+.. image:: ./cns_amr_3d/v_error.png
    :width: 300pt
-.. image:: ./cns_amr/w_error.png
+.. image:: ./cns_amr_3d/w_error.png
    :width: 300pt
 
 - Pressure :math:`L_2` error norm:
 
-.. image:: ./cns_amr/p_error.png
+.. image:: ./cns_amr_3d/p_error.png
    :width: 300pt

@@ -33,7 +33,7 @@ PELEC1D=${CWDIR}/PeleC1d.gnu.MPI.ex
 
 #================================================================================
 # Symmetry
-WORKDIR=${CWDIR}/cns_noamr
+WORKDIR=${CWDIR}/symmetry_3d
 
 cd ${WORKDIR};
 rm -rf chk* plt* datlog mmslog;
@@ -41,7 +41,7 @@ mpirun -n 4 ${PELEC3D} inputs_3d > mms.o 2>&1 ;
 
 #================================================================================
 # CNS without AMR
-WORKDIR=${CWDIR}/cns_noamr
+WORKDIR=${CWDIR}/cns_noamr_3d
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;
@@ -105,7 +105,7 @@ mpirun -n 4 ${PELEC1D} inputs_1d > mms.o 2>&1 ;
 
 #================================================================================
 # CNS with AMR
-WORKDIR=${CWDIR}/cns_amr
+WORKDIR=${CWDIR}/cns_amr_3d
 
 cd ${WORKDIR}/8;
 rm -rf chk* plt* datlog mmslog;

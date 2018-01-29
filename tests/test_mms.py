@@ -117,14 +117,15 @@ def calculate_ooa(edf):
     """Calculate the order of accuracy given an error dataframe."""
 
     sfx_mms = '_mms_err'
-    fields = [re.sub(sfx_mms, '', col) for col in edf.columns if col.endswith(sfx_mms)]
+    fields = [re.sub(sfx_mms, '', col)
+              for col in edf.columns if col.endswith(sfx_mms)]
 
     columns = []
     data = np.zeros((len(edf['resolution']) - 1, 5))
     for k, field in enumerate(fields):
-        columns.append(field+'_ooa')
-        data[:, k] = -np.diff(np.log(edf[field+sfx_mms])) / \
-                     np.diff(np.log(edf['resolution']))
+        columns.append(field + '_ooa')
+        data[:, k] = -np.diff(np.log(edf[field + sfx_mms])) / \
+            np.diff(np.log(edf['resolution']))
     ooa = pd.DataFrame(data, columns=columns)
 
     return ooa.dropna(axis=1, how='any')
@@ -134,14 +135,15 @@ def plot_errors(fdir, edf):
     """Plot the error dataframe."""
 
     sfx_mms = '_mms_err'
-    fields = [re.sub(sfx_mms, '', col) for col in edf.columns if col.endswith(sfx_mms)]
+    fields = [re.sub(sfx_mms, '', col)
+              for col in edf.columns if col.endswith(sfx_mms)]
 
     plt.close('all')
     for k, field in enumerate(fields):
 
         plt.figure(k)
         p = plt.loglog(edf['resolution'],
-                       edf[field+sfx_mms],
+                       edf[field + sfx_mms],
                        ls='-',
                        lw=2,
                        color=cmap[0],
@@ -151,7 +153,7 @@ def plot_errors(fdir, edf):
                        ms=10,
                        label='Pele')
         p = plt.loglog(edf['resolution'],
-                       edf[field+'_theory'],
+                       edf[field + '_theory'],
                        ls='-',
                        lw=2,
                        color=cmap[-1],
@@ -160,12 +162,13 @@ def plot_errors(fdir, edf):
         # Format the plots
         ax = plt.gca()
         plt.xlabel(r"$N$", fontsize=22, fontweight='bold')
-        plt.ylabel(r"$e_{0:s}$".format('{'+field+'}'), fontsize=22, fontweight='bold')
+        plt.ylabel(r"$e_{0:s}$".format('{' + field + '}'),
+                   fontsize=22, fontweight='bold')
         plt.setp(ax.get_xmajorticklabels(), fontsize=18, fontweight='bold')
         plt.setp(ax.get_ymajorticklabels(), fontsize=18, fontweight='bold')
         legend = ax.legend(loc='best')
         plt.tight_layout()
-        plt.savefig(os.path.join(fdir, field+'_error.png'), format='png')
+        plt.savefig(os.path.join(fdir, field + '_error.png'), format='png')
 
 
 # ========================================================================
@@ -186,7 +189,7 @@ class MMSTestCase(unittest.TestCase):
         """Is the MMS error symmetric with symmetric IC (u,v,w)?"""
 
         # Load the data
-        fdir = os.path.abspath(os.path.join(self.parent_dir, 'symmetry'))
+        fdir = os.path.abspath(os.path.join(self.parent_dir, 'symmetry_3d'))
         fname = os.path.join(fdir, 'mmslog')
         df = pd.read_csv(fname, delim_whitespace=True)
         npt.assert_allclose(df.u_mms_err,
@@ -206,7 +209,7 @@ class MMSTestCase(unittest.TestCase):
         """Is the CNS no AMR (3D) PeleC second order accurate?"""
 
         # Load the data
-        fdir = os.path.abspath(os.path.join(self.parent_dir, 'cns_noamr'))
+        fdir = os.path.abspath(os.path.join(self.parent_dir, 'cns_noamr_3d'))
         edf = load_pelec_error(fdir, self.theory_order)
         ooa = calculate_ooa(edf)
 
@@ -251,7 +254,7 @@ class MMSTestCase(unittest.TestCase):
         """Is the CNS with AMR PeleC second order accurate?"""
 
         # Load the data
-        fdir = os.path.abspath(os.path.join(self.parent_dir, 'cns_amr'))
+        fdir = os.path.abspath(os.path.join(self.parent_dir, 'cns_amr_3d'))
         edf = load_pelec_error(fdir, self.theory_order)
         ooa = calculate_ooa(edf)
 
